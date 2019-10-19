@@ -1,0 +1,39 @@
+log:
+    name: framework
+    when: D
+    interval: 1
+    backup: 5
+    console_level: DEBUG
+    file_level: WARNING
+    formater: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+retry: 0        # 失败重试，暂未使用， 已内置失败截图
+report:
+    backup: 10  # 只保留最近10份报告
+selenium:
+    debug: false
+    logger: framework
+chrome:
+    simple:
+        maximize_window: true
+        implicitly_wait: 5      # 隐式等待
+        tiemout: 10             # 显示等待，最坏情况下也就请求2次
+    is_headless: false          # 还是不要用无头模式，在元素 visibility 时经常出问题，追求速度，上分布式解决
+
+    is_remote: false            # 本机调试时使用
+    remote:
+        # debugger_address: "localhost:9555"
+        # arguments:
+            # - --headless
+            # - --disable-gpu
+            # - --start-fullscreen
+            # - '--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'
+        # experimental_arguments:
+        #     "profile.managed_default_content_settings.images": 2
+        #     perfLoggingPrefs:
+        #         enableNetwork: true
+        #         enablePage: true
+        #         bufferUsageReportingInterval: 1000
+        # desired_capabilities:
+        #     "browser": "ALL"
+        #     "driver": "ALL"
+        #     "performance": "ALL"
